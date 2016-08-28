@@ -1,0 +1,13 @@
+{% extends 'counter/base.html' %}
+{% block bactive %}active{% endblock %}
+
+{% block header %}
+Overwatch Score Tracker
+{% endblock %}
+{% block body %}
+<p>
+Wins: {{wins}}
+</p><p>
+Losses: {{losses}}
+</p>
+{% endblock %}

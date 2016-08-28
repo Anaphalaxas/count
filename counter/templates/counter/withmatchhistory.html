@@ -1,0 +1,8 @@
+{% extends 'counter/matchhistory.html'%}
+{% block options %}
+<h3>Options</h3>
+<h4>{% if p_inc %}With at least: {% else %} Without: {% endif %}{% for p in players %}<span class="name-span">{{p}}</span>{% empty %}<span>Nobody</span>{% endfor %}</h4>
+<h4>{% if m_inc %}Only these maps: {% else %} All maps except: {% endif %}{% for p in maps %}<span class="name-span">{{p}}</span>{% empty %}<span>No maps</span>{% endfor %}</h4>
+{% endblock %}
+{% block gactive %}{% endblock %}
+{% block bactive %}active{% endblock %}

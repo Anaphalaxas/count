@@ -1,0 +1,18 @@
+{% extends 'counter/base.html' %}
+
+{% block cactive %}active{% endblock %}
+{% block header %}
+Overwatch Score Tracker
+{% endblock %}
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1> Total Wins and Losses </h1>
+  </div>
+  <div class="panel-body">
+    <h3>Wins: {{wins}}</h3>
+    <h3>Losses: {{losses}}</h3>
+  </div>
+</div>
+
+{% endblock %}

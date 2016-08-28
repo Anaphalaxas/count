@@ -1,0 +1,31 @@
+{% extends 'counter/base.html' %}
+
+{% block aactive %}active{% endblock %}
+{% block header %}
+Overwatch Score Tracker
+{% endblock %}
+{% block body %}
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+<form action="/report/"><button class="btn btn-primary text-center"><span style="font-size:8em;margin:10px" class="glyphicon glyphicon-check"></span><p>Report a Match</p></button></form>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+<form action="/scoreWith/"><button class="btn btn-primary text-center"><span style="font-size:8em;margin:10px" class="glyphicon glyphicon-pawn"></span><p>Find Score With</p></button></form>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+<form action="/total/"><button class="btn btn-primary text-center"><span style="font-size:8em;margin:10px" class="glyphicon glyphicon-queen"></span><p>Check Total Score</p></button></form>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+<form action="/addplayer/"><button class="btn btn-primary text-center"><span style="font-size:8em;margin:10px" class="glyphicon glyphicon-user"></span><p>Add Player</p></button></form>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+<form action="/winratevstime/"><button class="btn btn-primary text-center"><span style="font-size:8em;margin:10px" class="glyphicon glyphicon-stats"></span><p>Win Rate</p></button></form>
+</div>
+
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+<form action="/matchhistory/"><button class="btn btn-primary text-center"><span style="font-size:8em;margin:10px" class="glyphicon glyphicon-book"></span><p>Match History</p></button></form>
+</div>
+{% endblock %}

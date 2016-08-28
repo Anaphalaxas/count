@@ -1,0 +1,36 @@
+{% extends 'counter/base.html' %}
+
+{% block header %}
+Overwatch Score Tracker
+{% endblock %}
+{% block eactive %}active{% endblock %}
+{% block body %}
+{% if not success %}
+<form action="/addplayer/" method="post">
+	<div class="panel panel-default">
+  	<div class="panel-heading">
+    	<h1> Add Player </h1>
+  	</div>
+  	<div class="panel-body">
+    	{% csrf_token %}
+      <table class="">
+      {{form.as_table}}
+      </table>
+      <button class="btn btn-default" type="submit">Submit</button>
+    </div>
+	</div>
+</form>
+{% else %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1> Add Player </h1>
+  </div>
+  <div class="panel-body">
+    Player Saved
+  </div>
+  <form action="/addplayer/">
+  <button class="btn btn-default" type="submit">Add Another</button>
+  </form>
+</div>
+{% endif %}
+{% endblock %}

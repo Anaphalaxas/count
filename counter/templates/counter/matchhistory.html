@@ -1,0 +1,42 @@
+{% extends 'counter/base.html' %}
+
+{% block gactive %}active{% endblock %}
+{% block header %}
+Overwatch Score Tracker
+{% endblock %}
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Match History</h1>
+  </div>
+  <div class="panel-body">
+    <h4>Wins: {{wins}}</h4>
+    <h4>Losses: {{losses}}</h4>
+    {% block options %}
+    {% endblock %}
+    <table class="table">
+    <thead>
+      <tr>
+          <th>Result</th>
+          <th>Time</th>
+          <th>Map</th>
+          <th>Played With</th>
+          <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in history %}
+      <tr>
+        <td><span class="btn {% if item.0 %}btn-success{%else%}btn-danger{%endif%}">{% if item.0%}Victory{%else%}Defeat{%endif%}</button></td>
+        <td>{{item.2}}</td>
+        <td>{{ item.1}}</td>
+        <td>{% for p in item.3 %}<span class="name-span">{{p}}</span>{% empty %}None{%endfor%}</td>
+        <td>{{item.4}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

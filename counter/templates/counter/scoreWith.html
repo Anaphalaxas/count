@@ -1,0 +1,38 @@
+{% extends 'counter/base.html' %}
+
+{% block header %}
+Overwatch Score Tracker
+{% endblock %}
+{% block bactive %}active{% endblock %}
+{% block body %}
+<form action="/scoreWith/" method="post">
+	<div class="panel panel-default">
+  	<div class="panel-heading">
+    	<h1> Score With... </h1>
+  	</div>
+  	<div class="panel-body">
+    	{% csrf_token %}
+      <div class="form-group col-lg-4 col-md-6 col-sm-8">
+      <div>
+      	<label for="{{form.player_select.id_for_label }}">Players</label>
+      	<label class="radio-inline">{{form.player_select}}</label>
+      </div>
+      <div>
+        {{form.player_choices}}
+      </div>
+      <div>
+        <label for="{{form.map_select.id_for_label}}">Maps</label>
+    	  <label class="radio-inline">{{form.map_select}}</label>
+      </div>
+      <div>
+        {{form.map_choices}}
+      </div>
+      <div style="margin-top:5px">
+    	<button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+  	</div>
+  	</div>
+    </div>
+	</div>
+</form>
+{% endblock %}

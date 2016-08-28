@@ -1,0 +1,57 @@
+{% extends 'counter/base.html' %}
+{% load staticfiles %}
+{% block factive %}active{% endblock %}
+{% block header %}
+Overwatch Score Tracker
+{% endblock %}
+{% block body %}
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
+
+{% endblock %}
+{% block jquery %}
+<script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      zoomEnabled: true,
+      theme: "theme1",
+      title:{
+        text: "Winrate vs. Time"
+      },
+      animationEnabled: true,
+      axisX: {
+        valueFormatString: "M-DD",
+        interval:1,
+        intervalType: "day"
+        
+      },
+      axisY:{
+        includeZero: false
+        
+      },
+      data: [
+      {
+        type: "line",
+        markerSize: 0,
+        //lineThickness: 3,        
+        dataPoints: [
+        {% for item in winrate %}
+	        {% with item.0 as rate %}
+	        	{% with item.1 as date %}
+		        	{ x: new Date({{date.year}}, {{date.month}}-1, {{date.day}},{{date.hour}},{{date.minute}}), y: {{rate}}, lineColor: "rgb({{item.3}},{{item.4}},{{item.5}})" },
+		        {% endwith %}
+		    {% endwith %}
+		{% endfor %}
+        ]
+      }
+      
+      
+      ]
+    });
+
+chart.render();
+}
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+{% endblock %}
